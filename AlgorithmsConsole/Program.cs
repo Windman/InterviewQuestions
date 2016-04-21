@@ -24,6 +24,29 @@ namespace AlgorithmsConsole
 
         public static void Main(string[] args)
         {
+            InterviewQuestions.ExecuteQ10();
+        }
+        
+        public static void Temp1()
+        {
+            //Linq under the hood
+            List<Person> ps = new List<Person>();
+            ps.Add(new Person { name = "Xenon", age = 100 });
+            ps.Add(new Person { name = "Max", age = 33 });
+            ps.Add(new Person { name = "Misha", age = 3 });
+            ps.Add(new Person { name = "Marina", age = 55 });
+            ps.Add(new Person { name = "Andy", age = 1 });
+            ps.Add(new Person { name = "Lena", age = 30 });
+
+            //var r = ps.Where(x => x.age > 30).ToArray();
+            //Find(x => x.age == 30);
+            var sorted = ps.OrderBy(x => x.name).ThenBy(x => x.age).ToList();
+
+            //sorted.ForEach(x => Console.WriteLine(x));
+        }
+
+        public static void Temp0()
+        {
             Point[] pts = new Point[100];
             for (int i = 0; i < pts.Length; i++)
             {

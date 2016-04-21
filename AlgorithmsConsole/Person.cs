@@ -10,6 +10,13 @@ namespace AlgorithmsConsole
     public class Person
     {
         [JsonProperty(PropertyName = "name")]
-        public string name { get; set; }   
+        public string name { get; set; }
+
+        public int age { get; set; }
+
+        public override string ToString()
+        {
+            return name + " " + age;
+        }
     }
 }

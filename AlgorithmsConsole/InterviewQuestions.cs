@@ -208,5 +208,17 @@ namespace AlgorithmsConsole
             Console.WriteLine(obj.City);
         }
         #endregion
+        #region Q10
+        public static void ExecuteQ10()
+        {
+            dynamic din = 5m;
+            din += 5;
+            Print(din);
+        }
+        public static void Print(string s)
+        {
+            Console.WriteLine(s);
+        }
+        #endregion
     }
 }
