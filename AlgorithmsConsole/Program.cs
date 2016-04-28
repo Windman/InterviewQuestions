@@ -1,46 +1,76 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
+using System.Threading;
 
 namespace AlgorithmsConsole
 {
-    class SomeReff { public Int32 x;}
-
     class Program
     {
         public struct Point
         {
             public int x, y;
         }
-
+        
         public static void Main(string[] args)
         {
-            InterviewQuestions.ExecuteQ10();
+            InterviewQuestions.ExecuteQ1Code();
+            //Console.ReadLine();
+            //Dictionary<string, int> d = new Dictionary<string, int>();
+            //d.Add("Key1", 1);
+
+            //GetHashCodeExpiriments();
+            //Multithreading();
+            //LinqIssues();
         }
-        
-        public static void Temp1()
+
+        public static void GetHashCodeExpiriments()
+        {
+            var p1 = new Person { name = "Xenon", age = 100 };
+            var p2 = new Person { name = "Xenon", age = 100 };
+            Console.WriteLine("{0} {1}", p1.GetHashCode(), p2.GetHashCode());
+
+            var k1 = new KeyValuePair<int, int>(10, 29);
+            var k2 = new KeyValuePair<int, int>(10, 31);
+            Console.WriteLine("k1 - {0}, k2 - {1}", k1.GetHashCode(), k2.GetHashCode());
+
+            var v1 = new KeyValuePair<int, string>(10, "abc");
+            var v2 = new KeyValuePair<int, string>(10, "def");
+            Console.WriteLine("v1 - {0}, v2 - {1}", v1.GetHashCode(), v2.GetHashCode());
+        }
+
+        public static void Multithreading()
+        {
+            var p = new Person { name = "Xenon", age = 100 };
+            Console.WriteLine("{0} {1}", p.age, p.GetHashCode());
+            Thread t1 = new Thread(() => { p.age = 11; Console.WriteLine("{0} {1}", p.age, p.GetHashCode()); });
+            Thread t2 = new Thread(() => { p.age = 12; Console.WriteLine("{0} {1}",p.age, p.GetHashCode());});
+            t1.Start();
+            t2.Start();
+            t1.Join();
+            t2.Join();
+        }
+
+
+        public static void LinqIssues()
         {
             //Linq under the hood
             List<Person> ps = new List<Person>();
-            ps.Add(new Person { name = "Xenon", age = 100 });
+            var p = new Person { name = "Xenon", age = 100 };
+            var type = p.GetType();
+            ps.Add(p);
+
             ps.Add(new Person { name = "Max", age = 33 });
             ps.Add(new Person { name = "Misha", age = 3 });
             ps.Add(new Person { name = "Marina", age = 55 });
             ps.Add(new Person { name = "Andy", age = 1 });
             ps.Add(new Person { name = "Lena", age = 30 });
 
-            //var r = ps.Where(x => x.age > 30).ToArray();
+            var r = ps.Where(x => x.age > 30).ToArray();
             //Find(x => x.age == 30);
-            var sorted = ps.OrderBy(x => x.name).ThenBy(x => x.age).ToList();
+            //var sorted = ps.OrderBy(x => x.name).ThenBy(x => x.age).ToList();
 
             //sorted.ForEach(x => Console.WriteLine(x));
         }
@@ -175,6 +205,16 @@ namespace AlgorithmsConsole
             list.Add(new Card { Start = "Париж", End = "Хельсинки" });
 
             list.Sort();
+        }
+    }
+
+    class SomeReff
+    {
+        public Int32 x;
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

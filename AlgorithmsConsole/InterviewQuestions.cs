@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AlgorithmsConsole
 {
@@ -13,8 +11,14 @@ namespace AlgorithmsConsole
         {
             var first = new First();
             first.Execute();
+
             first = new Second();
             first.Execute();
+            first.Simple();
+
+            Second s = new Second();
+            s.Simple();
+
             first = new Third();
             first.Execute();
         }
@@ -23,11 +27,21 @@ namespace AlgorithmsConsole
             {
                 Console.WriteLine("FIRST WRITING");
             }
+
+            public void Simple()
+            {
+                Console.WriteLine("Simple");
+            }
         }
         internal class Second : First{
             public override void Execute()
             {
                 Console.WriteLine("SECOND WRITING");
+            }
+
+            public void Simple()
+            {
+                Console.WriteLine("On Top of the Simple");
             }
         }
         internal class Third : Second{

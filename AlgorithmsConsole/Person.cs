@@ -18,5 +18,10 @@ namespace AlgorithmsConsole
         {
             return name + " " + age;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
