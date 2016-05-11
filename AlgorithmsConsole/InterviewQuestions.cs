@@ -234,5 +234,35 @@ namespace AlgorithmsConsole
             Console.WriteLine(s);
         }
         #endregion
+        #region Q11
+        /* Как будет работать код?
+        var fib = GetFibonaci();
+        Console.WriteLine(fib(3));
+        Console.WriteLine(fib(5));
+        Console.WriteLine(fib(5));
+         */
+        public static Func<int, int> GetFibonaci()
+        {
+            Dictionary<int, int> d = new Dictionary<int, int>();
+            int val;
+
+            Func<int, int> fx = (n) =>
+            {
+                if (n <= 1)
+                {
+                    return n;
+                }
+
+                if (!d.TryGetValue(n, out val))
+                {
+                    d[n] = val = (n - 1) + (n - 2);
+                }
+
+                return val;
+            };
+
+            return fx;
+        }
+        #endregion
     }
 }

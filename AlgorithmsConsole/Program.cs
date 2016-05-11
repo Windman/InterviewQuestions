@@ -16,7 +16,13 @@ namespace AlgorithmsConsole
         
         public static void Main(string[] args)
         {
-            InterviewQuestions.ExecuteQ1Code();
+            var fib = GetFibonaci();
+            Console.WriteLine(fib(3));
+            Console.WriteLine(fib(5));
+            Console.WriteLine(fib(5));
+            
+            
+            //InterviewQuestions.ExecuteQ1Code();
             //Console.ReadLine();
             //Dictionary<string, int> d = new Dictionary<string, int>();
             //d.Add("Key1", 1);
@@ -24,6 +30,29 @@ namespace AlgorithmsConsole
             //GetHashCodeExpiriments();
             //Multithreading();
             //LinqIssues();
+        }
+
+        public static Func<int, int> GetFibonaci()
+        {
+            Dictionary<int, int> d = new Dictionary<int, int>();
+            int val;
+
+            Func<int, int> fx = (n) => 
+            {
+                if (n <= 1)
+                {
+                    return n;
+                }
+
+                if (!d.TryGetValue(n, out val))
+                {
+                    d[n] = val = (n - 1) + (n - 2);
+                }
+                
+                return val;
+            };
+
+            return fx;           
         }
 
         public static void GetHashCodeExpiriments()
