@@ -16,10 +16,13 @@ namespace AlgorithmsConsole
         
         public static void Main(string[] args)
         {
-            var fib = GetFibonaci();
-            Console.WriteLine(fib(3));
-            Console.WriteLine(fib(5));
-            Console.WriteLine(fib(5));
+            //Exceptions();
+            //DataStructures.HashCode();
+            
+            //var fib = GetFibonaci();
+            //Console.WriteLine(fib(3));
+            //Console.WriteLine(fib(5));
+            //Console.WriteLine(fib(5));
             
             
             //InterviewQuestions.ExecuteQ1Code();
@@ -30,6 +33,51 @@ namespace AlgorithmsConsole
             //GetHashCodeExpiriments();
             //Multithreading();
             //LinqIssues();
+        }
+
+        private static void Exceptions()
+        {
+            try
+            {
+                try
+                {
+                    throw new Exception("1");
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("2", ex);
+                }
+                finally
+                {
+                    throw new Exception("3");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);               
+            }
+
+        }
+
+        unsafe public static void Go()
+        {
+            // Выделение места под объекты, которые немедленно превращаются в мусор
+            for (Int32 x = 0; x < 10000; x++) new Object();
+            IntPtr originalMemoryAddress;
+            Byte[] bytes = new Byte[1000]; // Располагаем этот массив
+            // после мусорных объектов
+            // Получаем адрес в памяти массива Byte[]
+            fixed (Byte* pbytes = bytes) { originalMemoryAddress = (IntPtr)pbytes; }
+            // Принудительная уборка мусора
+            // Мусор исчезает, позволяя сжать массив Byte[]
+            GC.Collect();
+            // Повторное получение адреса массива Byte[] в памяти
+            // и сравнение двух адресов
+            fixed (Byte* pbytes = bytes)
+            {
+                Console.WriteLine("The Byte[] did{0} move during the GC",
+                (originalMemoryAddress == (IntPtr)pbytes) ? " not" : null);
+            }
         }
 
         public static Func<int, int> GetFibonaci()
