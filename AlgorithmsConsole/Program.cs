@@ -16,6 +16,12 @@ namespace AlgorithmsConsole
         
         public static void Main(string[] args)
         {
+            //Singletone s = new Singletone();
+
+            Singletone s = Singletone.GetSingletone;
+            Singletone s1 = Singletone.GetSingletone;
+            Singletone s2 = Singletone.GetSingletone;
+
             //Exceptions();
             //DataStructures.HashCode();
             
@@ -129,7 +135,6 @@ namespace AlgorithmsConsole
             t1.Join();
             t2.Join();
         }
-
 
         public static void LinqIssues()
         {
