@@ -9,12 +9,13 @@ namespace AlgorithmsConsole
         #region Q1
         public static void ExecuteQ1Code()
         {
-            var first = new First();
+            First first = new First();
             first.Execute();
 
             first = new Second();
             first.Execute();
             first.Simple();
+            first.Hiding();
 
             Second s = new Second();
             s.Simple();
@@ -22,10 +23,17 @@ namespace AlgorithmsConsole
             first = new Third();
             first.Execute();
         }
+        
         internal class First{
+            
             public virtual void Execute()
             {
                 Console.WriteLine("FIRST WRITING");
+            }
+
+            public void Hiding()
+            {
+                Console.WriteLine("FIRST");
             }
 
             public void Simple()
@@ -33,7 +41,9 @@ namespace AlgorithmsConsole
                 Console.WriteLine("Simple");
             }
         }
+       
         internal class Second : First{
+            
             public override void Execute()
             {
                 Console.WriteLine("SECOND WRITING");
@@ -43,12 +53,19 @@ namespace AlgorithmsConsole
             {
                 Console.WriteLine("On Top of the Simple");
             }
+
+            public new void Hiding()
+            {
+                Console.WriteLine("SECOND");
+            }
         }
+
         internal class Third : Second{
             public override void Execute()
             {
                 Console.WriteLine("THIRD WRITING");
             }
+
         }
         #endregion
         #region Q2

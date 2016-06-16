@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -16,11 +17,11 @@ namespace AlgorithmsConsole
         
         public static void Main(string[] args)
         {
-            //Singletone s = new Singletone();
+            InterviewQuestions.ExecuteQ1Code();
 
-            Singletone s = Singletone.GetSingletone;
-            Singletone s1 = Singletone.GetSingletone;
-            Singletone s2 = Singletone.GetSingletone;
+            //Singletone s = Singletone.GetSingletone;
+            //Singletone s1 = Singletone.GetSingletone;
+            //Singletone s2 = Singletone.GetSingletone;
 
             //Exceptions();
             //DataStructures.HashCode();
