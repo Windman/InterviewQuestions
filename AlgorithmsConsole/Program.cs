@@ -17,7 +17,11 @@ namespace AlgorithmsConsole
         
         public static void Main(string[] args)
         {
-            InterviewQuestions.ExecuteQ1Code();
+            SimpleTreeTasks t = new SimpleTreeTasks();
+            t.Go();
+            
+
+            //InterviewQuestions.ExecuteQ1Code();
 
             //Singletone s = Singletone.GetSingletone;
             //Singletone s1 = Singletone.GetSingletone;
