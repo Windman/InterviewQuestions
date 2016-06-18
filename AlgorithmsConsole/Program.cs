@@ -10,16 +10,11 @@ namespace AlgorithmsConsole
 {
     class Program
     {
-        public struct Point
-        {
-            public int x, y;
-        }
-        
         public static void Main(string[] args)
         {
             SimpleTreeTasks t = new SimpleTreeTasks();
-            t.Go();
-            
+            var tree = t.CreateTree();
+            int max = t.FindMaxRecursionSolution(tree);
 
             //InterviewQuestions.ExecuteQ1Code();
 
@@ -44,6 +39,11 @@ namespace AlgorithmsConsole
             //GetHashCodeExpiriments();
             //Multithreading();
             //LinqIssues();
+        }
+
+        public struct Point
+        {
+            public int x, y;
         }
 
         private static void Exceptions()
