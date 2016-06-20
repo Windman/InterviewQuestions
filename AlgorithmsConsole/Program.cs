@@ -17,7 +17,7 @@ namespace AlgorithmsConsole
         
         public static void Main(string[] args)
         {
-            SimpleTreeTasks t = new SimpleTreeTasks();
+            SimpleTreeQuizz t = new SimpleTreeQuizz();
             t.Go();
             
 

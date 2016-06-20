@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlgorithmsConsole
 {
-    public static class SimpleArrayTasks
+    public static class SimpleArrayQuizzes
     {
         public static IEnumerable<int> CreateAscendingArrayWithYield(int n)
         {

@@ -72,8 +72,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="InterviewQuestions.cs" />
-    <Compile Include="SimpleTasks.cs" />
-    <Compile Include="SimpleTreeTasks.cs" />
+    <Compile Include="SimpleArray.cs" />
+    <Compile Include="SimpleTreeQuizz.cs" />
     <Compile Include="Singletone.cs" />
   </ItemGroup>
   <ItemGroup>

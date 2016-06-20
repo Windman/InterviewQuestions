@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlgorithmsConsole
 {
-    public class SimpleTreeTasks
+    public class SimpleTreeQuizz
     {
         class Node
         {
