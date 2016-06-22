@@ -14,8 +14,9 @@ namespace AlgorithmsConsole
         {
             SimpleTreeTasks t = new SimpleTreeTasks();
             var tree = t.CreateTree();
-            int max = t.FindMaxRecursionSolution(tree);
+            //int max = t.FindMaxRecursionSolution(tree);
 
+            int max = t.FindMaxWithoutRecursion(tree);
             //InterviewQuestions.ExecuteQ1Code();
 
             //Singletone s = Singletone.GetSingletone;

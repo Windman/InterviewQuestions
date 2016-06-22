@@ -43,7 +43,7 @@ namespace AlgorithmsConsole
         {
             var tree = new Node(1);
             tree.AddNode(3);
-            tree.AddChildNode(2).AddNode(4).AddNode(5).AddChildNode(8).AddNode(10);
+            tree.AddChildNode(2).AddNode(4).AddNode(5);
             tree.AddNode(7);
             return tree;
         }
@@ -58,6 +58,27 @@ namespace AlgorithmsConsole
             foreach (var item in tree.Child)
             {
                 FindMaxRecursionSolution(item);
+            }
+
+            return max;
+        }
+
+        public int FindMaxWithoutRecursion(Node tree)
+        {
+            Queue<Node> q = new Queue<Node>();
+            q.Enqueue(tree);
+            max = tree.Data;
+
+            while (q.Count > 0)
+            {
+                var n = q.Dequeue();
+                if (max < n.Data)
+                    max = n.Data;
+
+                foreach (var item in n.Child)
+                {
+                    q.Enqueue(item);
+                }
             }
 
             return max;
